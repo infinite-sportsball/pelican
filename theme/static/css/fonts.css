@@ -1,0 +1,12 @@
+@font-face {
+    font-family: "Lobster";
+    src: url("/theme/webfonts/Lobster-Regular.ttf") format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: "OpenSans";
+    src: url("/theme/webfonts/OpenSans-Regular.ttf") format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}

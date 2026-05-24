@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Infinite Sportsball</title>
+
+<!-- Bootswatch Slate (Bootstrap 5.3) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.3/dist/slate/bootstrap.min.css">
+
+<style>
+  /* Jumbotron header */
+  .page-header {
+    padding: 6rem 1rem;
+    text-align: center;
+    background-color: #272b30;
+    border-bottom: 1px solid #1c1e22;
+    margin-bottom: 4rem;
+  }
+  .page-header h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+  }
+  .page-header .lead {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* Feature rows */
+  .feature-row {
+    margin-bottom: 4rem;
+  }
+  .feature-row img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+  }
+  .feature-text {
+    padding: 1rem 0;
+  }
+  .feature-number {
+    font-size: 4.5rem;
+    font-weight: 300;
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+  .feature-divider {
+    margin: 0 0 1.5rem 0;
+    width: 60px;
+    border-top: 2px solid var(--bs-secondary);
+    opacity: 1;
+  }
+
+  /* On mobile, image always on top */
+  @media (max-width: 767.98px) {
+    .feature-text {
+      padding-top: 1.5rem;
+    }
+    .page-header {
+      padding: 4rem 1rem;
+    }
+    .page-header h1 {
+      font-size: 2.5rem;
+    }
+    .feature-number {
+      font-size: 3.5rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- Jumbotron -->
+<header class="page-header">
+  <div class="container">
+    <h1>Infinite Sportsball</h1>
+    <p class="lead">What if the World Series never ended? Pick a universe and find out.</p>
+  </div>
+</header>
+
+<!-- Feature rows -->
+<div class="container">
+
+  <article class="feature-row row align-items-center g-4">
+    <div class="col-md-6">
+      <img src="/97/img/cle.png" alt="Infinite Cleveland">
+    </div>
+    <div class="col-md-6">
+      <div class="feature-text">
+        <div class="feature-number">97</div>
+        <hr class="feature-divider">
+        <h2>Infinite Cleveland</h2>
+        <p>The 1997 World Series between the Cleveland Indians and the Florida Marlins, replayed over and over. New stories emerge from every game: walk-offs, gems, streaks, and the slow grind of an endless postseason.</p>
+        <a href="/97/" class="btn btn-primary">Enter Universe 97</a>
+      </div>
+    </div>
+  </article>
+
+  <hr>
+
+  <article class="feature-row row align-items-center g-4">
+    <div class="col-md-6">
+      <img src="/72/img/cin.png" alt="Infinite Cincinnati">
+    </div>
+    <div class="col-md-6">
+      <div class="feature-text">
+        <div class="feature-number">72</div>
+        <hr class="feature-divider">
+        <h2>Infinite Cincinnati</h2>
+        <p>The 1972 World Series between the Cincinnati Reds and the Oakland A's, played into eternity. The Big Red Machine against the Mustache Gang, forever.</p>
+        <a href="/72/" class="btn btn-primary">Enter Universe 72</a>
+      </div>
+    </div>
+  </article>
+
+</div>
+
+<footer class="text-center text-muted py-4 mt-5">
+  <small>Infinite Sportsball &middot; Ch4zm of Hellmouth &middot; 2026</small>
+</footer>
+
+</body>
+</html>

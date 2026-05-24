@@ -1,0 +1,4 @@
+#!/bin/bash
+
+export INFINITE_PELICAN_HOME="${HOME}/golly/infinite/sportsball/pelican"
+export INFINITE_DATA_HOME="${HOME}/golly/infinite/sportsball/data"

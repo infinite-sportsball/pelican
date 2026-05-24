@@ -1,0 +1,27 @@
+    {% block head %}
+    {#
+    <title>{% block title %}{% endblock title %}</title>
+    #}
+    <title>{{ SITENAME }}</title>
+    <meta charset="utf-8" />
+
+    <!--
+    CSS styles
+    -->
+    <link href="{{ SITEURL }}/theme/css/fonts.css" rel="stylesheet" type="text/css">
+
+    <link href="{{ SITEURL }}/theme/css/slate.css"  rel="stylesheet" type="text/css">
+    <link href="{{ SITEURL }}/theme/css/custom.css" rel="stylesheet" type="text/css">
+    <link href="{{ SITEURL }}/theme/css/infinite.css" rel="stylesheet" type="text/css">
+
+    <!--
+    <link rel="icon" type="image/png" href="{{ SITEURL }}/theme/img/infinite-cleveland-favicon.png">
+    -->
+
+    <!--
+        Versions:
+        infinite-cleveland-pelican: {{ INFINITE_PELICAN_VERSION }}
+        infinite-cleveland-pelican-theme: 0.1.0
+    -->
+
+    {% endblock head %}
