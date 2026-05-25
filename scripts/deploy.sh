@@ -44,8 +44,9 @@ while IFS= read -r universe; do
     )
 done < UNIVERSES
 
-echo "Copying landing page..."
+echo "Copying landing page and favicon..."
 cp index.html output/index.html
+cp favicon.ico output/favicon.ico
 
 (
 echo "Committing new content..."
