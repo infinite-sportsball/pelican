@@ -6,7 +6,7 @@ INFINITE_PELICAN_VERSION = "0.1.0"
 INFINITE_PELICAN_IMG = '/72/img/cin.png'
 INFINITE_PELICAN_TITLE = 'Infinite Cincinnati'
 
-INFINITE_PELICAN_TITLE_CLASS = 'cincinnati'
+INFINITE_PELICAN_TITLE_STYLE = 'color: #d51313; font-family: Graduate, serif; text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.85);'
 
 
 SITEURL = '/72'
