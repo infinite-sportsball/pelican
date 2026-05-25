@@ -72,14 +72,12 @@ img {
   margin:0 auto
 }
 .blog-name {
-  color: #e1193a;
   font-size: 4em;
   position:relative;
   display:block;
   z-index:10;
   margin:0;
   padding:0;
-  font-family: "Lobster",cursive;
   font-weight:700;
   line-height:1em;
   text-decoration:none
