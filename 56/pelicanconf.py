@@ -1,0 +1,65 @@
+from pelican.readers import MarkdownReader
+
+
+INFINITE_PELICAN_VERSION = "0.1.0"
+
+INFINITE_PELICAN_IMG = '/56/img/dodgers.jpg'
+INFINITE_PELICAN_TITLE = 'Don Larsen is a Bum'
+
+
+SITEURL = '/56'
+
+AUTHOR = u'Ch4zm of Hellmouth'
+
+SITENAME = INFINITE_PELICAN_TITLE
+
+PATH = 'content'
+THEME = '../theme'
+
+# Don't try to turn HTML files into pages
+READERS = {
+    'html': None,
+    'md': MarkdownReader
+}
+
+# Static stuff
+STATIC_PATHS = ['img', 'almanacs', 'css', 'webfonts']
+
+
+# --------------------
+# Map template pages to their final file name
+
+TEMPLATE_PAGES = {}
+
+TEMPLATE_PAGES['index.html'] = 'index.html'
+
+# --------------------
+# Add custom routes
+
+THEME_TEMPLATES_OVERRIDES = []
+
+# --------------------
+# SHUT UP
+
+ARCHIVES_SAVE_AS = ''
+AUTHOR_SAVE_AS = ''
+AUTHORS_SAVE_AS = ''
+CATEGORY_SAVE_AS = ''
+CATEGORIES_SAVE_AS = ''
+DAY_SAVE_AS = ''
+INDEX_SAVE_AS = ''
+MONTH_ARCHIVE_SAVE_AS = ''
+TAGS_SAVE_AS = ''
+YEAR_ARCHIVE_SAVE_AS = ''
+
+
+# ---------------------
+
+# No feeds
+FEED_ALL_ATOM = None
+CATEGORY_FEED_ATOM = None
+TRANSLATION_FEED_ATOM = None
+AUTHOR_FEED_ATOM = None
+AUTHOR_FEED_RSS = None
+DEFAULT_PAGINATION = False
+TIMEZONE = 'America/Los_Angeles'
