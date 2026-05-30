@@ -3,11 +3,11 @@ from pelican.readers import MarkdownReader
 
 INFINITE_PELICAN_VERSION = "0.1.0"
 
-INFINITE_PELICAN_IMG = '/72/img/cin.png'
-INFINITE_PELICAN_TITLE = 'Infinite Cincinnati'
+INFINITE_PELICAN_IMG = '/98/img/sdp.png'
+INFINITE_PELICAN_TITLE = 'Infinite Cleveland 2'
 
 
-SITEURL = '/72'
+SITEURL = '/98'
 
 AUTHOR = u'Ch4zm of Hellmouth'
 
@@ -37,8 +37,6 @@ TEMPLATE_PAGES['index.html'] = 'index.html'
 # Add custom routes
 
 THEME_TEMPLATES_OVERRIDES = []
-#THEME_TEMPLATES_OVERRIDES.append('foobar')
-#TEMPLATE_PAGES['foobar/special.html'] = 'foobar/index.html'
 
 # --------------------
 # SHUT UP
@@ -65,4 +63,3 @@ AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 DEFAULT_PAGINATION = False
 TIMEZONE = 'America/Los_Angeles'
-

@@ -6,8 +6,6 @@ INFINITE_PELICAN_VERSION = "0.1.0"
 INFINITE_PELICAN_IMG = '/97/img/cle.png'
 INFINITE_PELICAN_TITLE = 'Infinite Cleveland'
 
-INFINITE_PELICAN_TITLE_STYLE = 'color: #e1193a; font-family: Lobster, cursive;'
-
 
 SITEURL = '/97'
 
@@ -25,7 +23,7 @@ READERS = {
 }
 
 # Static stuff
-STATIC_PATHS = ['img', 'almanacs']
+STATIC_PATHS = ['img', 'almanacs', 'css', 'webfonts']
 
 
 # --------------------
