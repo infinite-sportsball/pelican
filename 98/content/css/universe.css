@@ -1,0 +1,13 @@
+@font-face {
+    font-family: "Lobster";
+    src: url("../webfonts/Lobster-Regular.ttf") format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+.blog-name,
+.blog-name a {
+  color: #e1193a;
+  font-family: Lobster, cursive;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.85);
+}
