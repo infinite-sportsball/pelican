@@ -144,20 +144,20 @@ In the bottom of the sixth, trailing 2-3, Gullett faced the heart of Oakland's o
 exactly nine pitches to retire all three.
 
 Matty Alou fouled off a pitch, swung through the next, and swung through the third. Three pitches,
-strikeout. Joe Rudi swung through a strike, took a ball, then rolled a groundball to the mound —
+strikeout. Joe Rudi swung through a strike, took a ball, then rolled a groundball to the mound -
 Gullett fielded it himself, threw to first, three pitches, out. Sal Bando fouled the first pitch
 back, watched a called strike paint the corner, then stood frozen as a third strike caught
 the inside edge. Three pitches, strikeout looking.
 
-Nine pitches. Three batters. Three outs. No baserunners. No foul balls hit into play. One ball —
+Nine pitches. Three batters. Three outs. No baserunners. No foul balls hit into play. One ball -
 to Rudi, who put the next pitch on the ground so weakly that Gullett barely had to move his feet.
 Had that single ball been a strike, and had Rudi swung through it instead of grounding out,
-this would have been an immaculate inning — one of the rarest feats in baseball, achieved only
+this would have been an immaculate inning - one of the rarest feats in baseball, achieved only
 114 times in the history of the major leagues through 2024. Gullett missed it by one pitch.
 
 He left the game after that inning. Cincinnati trailed 3-2. They would not tie the game until
 the ninth, would not win until the fifteenth. Clay Carroll, who entered in the twelfth, got
-the win. Gullett got nothing — not the decision, not the record, not the recognition. Just nine
+the win. Gullett got nothing - not the decision, not the record, not the recognition. Just nine
 pitches in an empty half-inning that no one will remember unless they read this page.
 
 But it happened. In thirty-five simulated timelines, across hundreds of half-innings pitched,

@@ -42,13 +42,13 @@ In 27 of Florida's 51 losses, Florida held a lead at some point. Here are the wo
 
 ### Four-Run Leads Blown (2 times)
 
-**Timeline 1:** Florida leads 10-6 after 7 innings. Cleveland scores 7 in the bottom of the 8th to lead 13-10. Florida scores 4 in the top of the 9th to retake the lead 14-13. Cleveland scores 2 in the bottom of the 9th to walk off 15-14. This game is a near-perfect echo of the real Game 3 — except in this version, Cleveland finishes the rally that real-Cleveland couldn't.
+**Timeline 1:** Florida leads 10-6 after 7 innings. Cleveland scores 7 in the bottom of the 8th to lead 13-10. Florida scores 4 in the top of the 9th to retake the lead 14-13. Cleveland scores 2 in the bottom of the 9th to walk off 15-14. This game is a near-perfect echo of the real Game 3 - except in this version, Cleveland finishes the rally that real-Cleveland couldn't.
 
 [Timeline 1 Box Score](/almanacs/infinite_cleveland_g01_cle15fla14/box_scores/game_box_1.html)
 
 [Timeline 1 Game Log](/almanacs/infinite_cleveland_g01_cle15fla14/game_logs/log_1.html)
 
-**Timeline 63:** Florida leads 5-0 by the 3rd inning. Cleveland scores 5 in the 5th to tie, then piles on 5 more unanswered. Florida's bats go silent — they don't score after the 3rd. Cleveland wins 10-5.
+**Timeline 63:** Florida leads 5-0 by the 3rd inning. Cleveland scores 5 in the 5th to tie, then piles on 5 more unanswered. Florida's bats go silent - they don't score after the 3rd. Cleveland wins 10-5.
 
 [Timeline 63 Box Score](/almanacs/infinite_cleveland_g63_cle10fla5/box_scores/game_box_1.html)
 
@@ -62,13 +62,13 @@ In 27 of Florida's 51 losses, Florida held a lead at some point. Here are the wo
 
 [Timeline 67 Game Log](/almanacs/infinite_cleveland_g67_cle23fla22/game_logs/log_1.html)
 
-**Timeline 53:** Al Leiter throws 8 innings of 1-run ball, striking out 3. Florida leads 2-1 entering the bottom of the 9th. Cleveland scores 2 to walk off 3-2. Leiter's best start of the multiverse — and it doesn't matter.
+**Timeline 53:** Al Leiter throws 8 innings of 1-run ball, striking out 3. Florida leads 2-1 entering the bottom of the 9th. Cleveland scores 2 to walk off 3-2. Leiter's best start of the multiverse - and it doesn't matter.
 
 [Timeline 53 Box Score](/almanacs/infinite_cleveland_g53_cle3fla2/box_scores/game_box_1.html)
 
 [Timeline 53 Game Log](/almanacs/infinite_cleveland_g53_cle3fla2/game_logs/log_1.html)
 
-Florida led in 45 of 69 games. They won 18 of those. The other 27 — that's where the multiverse punishes them. Even a 4-run lead isn't safe. Cleveland erased both of them. A 3-run lead entering the 9th? That went up in smoke too. Every lead Florida built came with an expiration date.
+Florida led in 45 of 69 games. They won 18 of those. The other 27 - that's where the multiverse punishes them. Even a 4-run lead isn't safe. Cleveland erased both of them. A 3-run lead entering the 9th? That went up in smoke too. Every lead Florida built came with an expiration date.
 
 ---
 
