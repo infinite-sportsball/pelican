@@ -1,0 +1,19 @@
+please examine the file
+
+@infinite-cleveland-pelican/pelican/content/apocalypse-games.md
+@infinite-cleveland-pelican/pelican/content/close-and-late.md
+@infinite-cleveland-pelican/pelican/content/floridas-foregone-conclusion.md
+@infinite-cleveland-pelican/pelican/content/leiters-gems.md
+@infinite-cleveland-pelican/pelican/content/matchup-inevitabilities.md
+@infinite-cleveland-pelican/pelican/content/matt-williams-walkoffs.md
+@infinite-cleveland-pelican/pelican/content/nagys-gems.md
+@infinite-cleveland-pelican/pelican/content/nenth-worst.md
+@infinite-cleveland-pelican/pelican/content/the-fifth-inning.md
+
+and double check the game information, game outcome, winner, score, and stats provided.
+the simulator game outcomes can be found in 
+@infinite-cleveland-data/ 
+and in 
+@infinite-cleveland-pelican/data/outcomes.json
+(search those locations if additional information needed)
+

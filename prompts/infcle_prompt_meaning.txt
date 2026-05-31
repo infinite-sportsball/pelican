@@ -1,0 +1,15 @@
+please take a look at @../infinite-cleveland-data/ and
+@../infinite-cleveland-pelican/ and the current directory and the gh-pages
+branch, which form (1) a data set of games created with out of the park
+baseball, simulations of wworld series 1997 game 3, with various simulated
+game outcomes. the out of the park generates graphs and html pages with
+game summaries and box scores and game logos, so we swipe all of those and
+compile a home page that links out to all 69 simulated games.
+
+what does it mean? what happened?
+in the style of jon bois and reveling in the weird, the shameful, the weird, do
+a deep dive into the game pages and let's find 3 ideas for lists of games
+where something strange, weird, deeply troubling, absurd, or profound ties them
+all together. 
+
+...the weirder, the better.

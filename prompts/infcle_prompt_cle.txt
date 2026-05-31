@@ -1,0 +1,18 @@
+please take a look at @infinite-cleveland-pelican/content/
+which contains a pelican page documenting various outcomes 
+(69 different "timelines") of a simulated World Series 1997 Game 3. 
+
+There are multiple pages documenting unusual occurrences, strange
+coincicdences, or anomalous phenomena.
+
+I would like to create a new page to capture particular simulated
+outcomes that echo other important games in Cleveland sports history.
+For example, the Cleveland Indians lost the 2016 World Series in a
+devastating Game 7 loss where they scored a run, but it wasn't enough.
+This reminded me of Timeline 32 (see almanacs/infinite_cleveland_g32_fla5cle4),
+in which Matt Williams belted a home run in the bottom of the 10th to
+bring the Indians to within one, but it still wasn't enough to win.
+Please identify key games for Cleveland Indians sports history, and
+let's identify if any games in our data set/almanac match.
+(Note this can include either extra-innings margin of victory,
+or final score, or other circumstances.)
