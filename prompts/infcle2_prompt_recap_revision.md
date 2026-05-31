@@ -178,8 +178,9 @@ THE CONCEIT: These players are trapped in an endless loop. The same game, the sa
 
 VOICE: Write in the style of Roger Angell — the New Yorker's baseball essayist for six decades. His hallmarks:
 - Long, musical sentences that unspool with the patience of a 3-2 count
-- Precise physical and spatial detail: the geometry of a relay throw, the specific arc of a fly ball against October sky, the sound of 31,000 people inhaling at once
+- Precise physical and spatial detail: the geometry of a relay throw, the specific arc of a fly ball against October sky, the sound of 45,000 people inhaling at once
 - The sense of *being there* — the particular cold of a Cleveland October, the light towers making everything both vivid and slightly unreal, the quality of noise in a ballpark that hasn't won a championship since 1948
+- Emotional calibration: if Cleveland wins, this is the end of a fifty-year drought. The crowd isn't politely applauding — they're losing their minds. The ending must match the stakes. Conversely, a Padres win means 45,000 people going silent at once. Get the emotional physics right.
 - Wry warmth without sentimentality; humor that respects its subject
 - Baseball understood as a meditation on time and repetition (which maps perfectly here)
 - Trust the reader — no explaining rules, no cheap drama, no exclamation points
@@ -200,6 +201,8 @@ WHAT TO AVOID:
 - Being heavy-handed about the simulation concept
 - Exclamation points in the prose
 - Headlines or titles — just the body text
+- Endings that leave the outcome emotionally ambiguous — if Cleveland wins the World Series, the reader must feel that. Don't end on quiet contemplation when the moment calls for eruption. A crowd "standing in the chill" after a championship win reads like a loss.
+- Game Score (the pitching metric) — it's an internal sabermetric stat that general readers won't know how to interpret. Use IP, hits, runs, strikeouts, and walks to convey a pitcher's dominance instead.
 
 FORMAT:
 - 3-4 paragraphs of flowing prose
@@ -282,7 +285,7 @@ NOTABLE PERFORMANCES:
 
 ATMOSPHERIC DATA:
   Weather: Clear skies (45 degrees), no wind
-  Attendance: 30,927
+  Attendance: 45,225
   Game duration: 3:35
   Start time: 8:05 PM EST
 
@@ -291,9 +294,28 @@ WALK-OFF: No (Cleveland led after the 8th; game ended on a routine top-of-9th)
 
 ---
 
+## Human Review Step (MANDATORY)
+
+**Never write the narrative directly into the HTML file.** Always present the proposed recap to the user first for approval.
+
+After generating the Pass 2 narrative:
+
+1. **Display the proposed recap in the Claude Code window as plain readable text.** Use actual paragraph breaks (blank lines between paragraphs) so the prose is easy to read — not run together, not wrapped in HTML tags. The user needs to be able to read it as prose, not as markup.
+
+2. **Wait for explicit user approval.** The user may:
+   - Approve the recap as-is (then proceed to insert it into the HTML)
+   - Request specific edits (revise and re-present)
+   - Reject it entirely and ask for a fresh attempt
+
+3. **Only after approval**, insert the recap into the box score HTML between the `<!--RECAP_TEXT_START-->` and `<!--RECAP_TEXT_END-->` markers, converting paragraph breaks to `<br/><br/>` and stripping any other formatting.
+
+This step is non-negotiable. The Roger Angell voice is too difficult to nail without a human ear in the loop. An AI cannot reliably judge whether its own prose sounds right.
+
+---
+
 ## Verification Checklist
 
-After generating each recap:
+After generating each recap (during the review step, before insertion):
 - Confirm it's 3-4 paragraphs, 250-400 words
 - Check that specific game details (score, player names, key plays) match the actual game data
 - Ensure the HTML will render properly (only `<br/>` tags, no unclosed elements)

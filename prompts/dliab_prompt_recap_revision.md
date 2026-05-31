@@ -10,6 +10,8 @@ This prompt uses a **two-pass approach**: a data-digestion pass that extracts an
 
 On October 8, 1956, Don Larsen pitched the only perfect game in World Series history — 27 up, 27 down — to give the Yankees a 2-0 win and a 3-2 series lead. The Dodgers never got a baserunner. In this project, every simulation undoes that perfection: Brooklyn wins all 51 games. Larsen never comes close to a perfect game. The conceit is that he wakes up each morning doomed to fail again, though he doesn't know it.
 
+**Larsen's Game 2 disaster (October 5, 1956):** Three days before his perfect game, Larsen started Game 2 of the same World Series and was handed a 6-0 lead after Yogi Berra's grand slam highlighted a five-run Yankee second inning. Larsen immediately blew it — he walked four batters in a six-run Dodger second inning and was pulled before recording the final out. The Dodgers won 13-8. This is rich material for the recaps: in reality, the Game 5 perfection was Larsen's redemption for Game 2. In our simulations, that redemption never comes — he keeps failing, and the Game 2 collapse becomes the pattern rather than the exception. Use this parallel when it fits naturally (especially when Larsen loses a lead or walks too many batters), but don't force it into every recap.
+
 The rosters are small and fixed — 12 players per side, the actual Game 5 lineups:
 
 **Brooklyn Dodgers (away, bat first):** Jim Gilliam (2B), Pee Wee Reese (SS), Duke Snider (CF), Jackie Robinson (3B), Gil Hodges (1B), Sandy Amoros (LF), Carl Furillo (RF), Roy Campanella (C), Sal Maglie (P), plus reserves Ransom Jackson (3B) and Rube Walker (P).
@@ -93,7 +95,7 @@ NOTABLE PERFORMANCES:
 
 ATMOSPHERIC DATA:
   Weather: {from box score game notes}
-  Attendance: {from box score game notes}
+  Attendance: 64,519 (IMPORTANT: Always use the historical attendance of 64,519 from the box score header, NOT the simulated ~43,000 figure from the game notes section. The real Game 5 drew 64,519 fans. When referencing the crowd in prose, use 64,519 or "sixty-four thousand" or similar.)
   Game duration: {from box score game notes}
   Start time: {from box score game notes}
   Ballpark: {from box score game notes — will be "Yankee Stadium I"}
@@ -211,6 +213,7 @@ WHAT TO INCLUDE:
 - The final score and which team won
 - The decisive moment(s): the big home run, the late rally, the key strikeout — whatever turned this particular version of the afternoon. Be specific: name the pitch count, the fielder, the distance.
 - At least 2-3 specific player names tied to what they actually did in THIS game
+- When first mentioning a player in the recap — especially in the opening sentence — establish which team they play for. The reader hasn't memorized the lineup card. "Carl Furillo's home run" means nothing until you say "for Brooklyn." This is especially important for less famous names (Amoros, Furillo, Carey, Collins) but applies to anyone introduced without prior context.
 - The shape of the game: a blowout that was over by the 3rd? A pitchers' duel cracked open in the 6th? A seesaw with lead changes every other inning?
 - Something about Larsen's day — how many innings he lasted, how hard he was hit, whether the wheels came off early or late
 - One vivid sensory detail grounded in the physical world of Yankee Stadium
@@ -223,8 +226,10 @@ WHAT TO AVOID:
 - Direct player quotes (no one actually said anything — this is a simulation)
 - Any mention of regular season records, franchise history beyond what's in the conceit, or "Simyou Lator Engine"
 - Being heavy-handed about the simulation concept
+- Concluding with a grand run-on sentence about timelines, exchanging lineup cards, anthems being sung, or patterns reasserting themselves. This is filler — a ham-handed attempt to tie a bow on the piece by restating the simulation conceit in flowery language. But don't overcorrect into an abrupt cutoff either — the piece still needs a proper landing. End on a concrete image or observation from the game itself: the sound of the crowd, a final pitching line, the stadium emptying. Something grounded and short, not a rhetorical flourish about repetition and fate.
 - Exclamation points in the prose
 - Headlines or titles — just the body text
+- Game Score (the pitching metric) — it's an internal sabermetric stat that general readers won't know how to interpret. Use IP, hits, runs, strikeouts, and walks to convey a pitcher's dominance instead.
 
 FORMAT:
 - 3-4 paragraphs of flowing prose
@@ -313,9 +318,28 @@ LARSEN LINE: Don Larsen — 9.0 IP, 7 H, 4 R, 3 ER, 10 K, 4 BB, 116 pitches, Gam
 
 ---
 
+## Human Review Step (MANDATORY)
+
+**Never write the narrative directly into the HTML file.** Always present the proposed recap to the user first for approval.
+
+After generating the Pass 2 narrative:
+
+1. **Display the proposed recap in the Claude Code window as plain readable text.** Use actual paragraph breaks (blank lines between paragraphs) so the prose is easy to read — not run together, not wrapped in HTML tags. The user needs to be able to read it as prose, not as markup.
+
+2. **Wait for explicit user approval.** The user may:
+   - Approve the recap as-is (then proceed to insert it into the HTML)
+   - Request specific edits (revise and re-present)
+   - Reject it entirely and ask for a fresh attempt
+
+3. **Only after approval**, insert the recap into the box score HTML between the `<!--RECAP_TEXT_START-->` and `<!--RECAP_TEXT_END-->` markers, converting paragraph breaks to `<br/><br/>` and stripping any other formatting.
+
+This step is non-negotiable. The Roger Angell voice is too difficult to nail without a human ear in the loop. An AI cannot reliably judge whether its own prose sounds right.
+
+---
+
 ## Verification Checklist
 
-After generating each recap:
+After generating each recap (during the review step, before insertion):
 - Confirm it's 3-4 paragraphs, 250-400 words
 - Check that specific game details (score, player names, key plays) match the actual game data
 - Ensure the HTML will render properly (only `<br/>` tags, no unclosed elements)
