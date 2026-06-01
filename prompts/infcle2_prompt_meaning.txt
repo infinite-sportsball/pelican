@@ -1,0 +1,19 @@
+please look at the directory
+@../../data/98
+and the directory
+@../pelican/98/
+these two directories form a data set of games created with
+out of the park baseball 20, for the World Series in Universe 98,
+which is a hypothetical Game 7 matchup between the 1998 
+Cleveland Indians vs the San Diego Padres.
+
+the out of the park generates almanac directories with graphs and html pages 
+with game summaries and box scores.
+
+what does it mean? what happened?
+in the style of jon bois and reveling in the weird, the shameful, the weird, do
+a deep dive into the game pages and let's find 3 ideas for lists of games
+where something strange, weird, deeply troubling, absurd, or profound ties them
+all together.
+
+...the weirder, the better.
