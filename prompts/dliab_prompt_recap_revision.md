@@ -100,8 +100,6 @@ ATMOSPHERIC DATA:
   Start time: {from box score game notes}
   Ballpark: {from box score game notes — will be "Yankee Stadium I"}
 
-WALK-OFF: No (Brooklyn bats first as the visiting team; the game cannot end on a walk-off)
-
 LARSEN LINE: {Don Larsen's pitching line — IP, H, R, ER, K, BB, PI pitches, game score. Note whether he was pulled early or went the distance.}
 ```
 
@@ -220,6 +218,8 @@ WHAT TO INCLUDE:
 - A light reference to this being one iteration among many — "the fifty-first telling," "in this particular reshuffling of the afternoon," "once more the lineup cards were exchanged at home plate" — but never more than a line or two
 
 WHAT TO AVOID:
+- Opening with a bare statistical declaration, a decontextualized game-state summary, or a player's name without identifying context. This includes "X hit Y home runs," "X hit a ball Y feet," "X threw the ball Y times," "X went Y-for-Z," but also "The game was tied at two through six innings," "The hit cleared the fence," and critically: "Sal Maglie pitched all nine innings" or any sentence that opens with just a name. A name alone tells the reader nothing — who is this person, what team are they on? Give them their role: "Brooklyn starter Sal Maglie," "the Dodgers' left fielder Sandy Amoros," etc. The first mention of ANY player in the recap — not just the opening — must include enough context (team, position, role) for a reader who just arrived to place them. The opening sentence must orient the reader — give them a team, a place, a feeling, a human being doing something specific. Stats and game states belong in the body of the prose where they illuminate what happened; they are not leads. Vary the entry point for every recap: a scene, a player in a moment, the quality of the afternoon, a narrative observation. Never open two recaps the same way.
+- Short dramatic reversal sentences: "They had not." "It was not." "He did not." "It did not last." Any three-to-five word sentence that exists solely as a theatrical pivot or dramatic beat. Angell would never write a sentence like that — he would fold the reversal into the texture of a longer, more considered sentence. These clipped pivots are an AI writing tic, not literary prose.
 - Sports clichés ("gave 110%", "clutch performance", "wanted it more")
 - The word "destiny"
 - The word "perfect" used earnestly about any aspect of this game (it's loaded — the real game was a perfect game, so the word carries ironic weight; use it only if you mean to invoke that irony)
@@ -310,8 +310,6 @@ ATMOSPHERIC DATA:
   Game duration: 2:52
   Start time: 1:05 PM EST
   Ballpark: Yankee Stadium I
-
-WALK-OFF: No (Brooklyn is the visiting team)
 
 LARSEN LINE: Don Larsen — 9.0 IP, 7 H, 4 R, 3 ER, 10 K, 4 BB, 116 pitches, Game Score 65. Went the distance despite allowing 4 runs — no bullpen help. Struck out 10 Dodgers but walked 4, and Robinson got to him for a homer and a key walk.
 ```

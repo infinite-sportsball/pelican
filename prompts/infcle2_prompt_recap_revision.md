@@ -86,6 +86,7 @@ ATMOSPHERIC DATA:
   Attendance: {from box score game notes}
   Game duration: {from box score game notes}
   Start time: {from box score game notes}
+  Ballpark: {from box score game notes}
 
 WALK-OFF: {yes/no — if yes, describe the final at-bat sequence: batter, count, result, who scored, final score}
 ```
@@ -189,19 +190,24 @@ WHAT TO INCLUDE:
 - The final score and which team won
 - The decisive moment(s): the walk-off hit, the late rally, the key strikeout — whatever turned this particular version of the night. Be specific: name the pitch count, the fielder, the distance.
 - At least 2-3 specific player names tied to what they actually did in THIS game
+- When first mentioning a player in the recap — especially in the opening sentence — establish which team they play for. The reader hasn't memorized the lineup card. "Kevin Brown had spent the evening..." means nothing until you say "the Padres starter." This applies to every first mention throughout the piece, not just the opener. Never assume the reader is already inside the game.
 - The shape of the game: a blowout that was over by the 4th? A pitchers' duel cracked open in the 8th? A seesaw with lead changes every other inning?
+- Something about the starting pitchers' day — how many innings Kevin Brown or Bartolo Colon lasted, how hard they were hit, whether things unraveled early or late
 - One vivid sensory detail grounded in the physical world of Jacobs Field
 - A light reference to this being one iteration among many — "the ninety-second telling," "in this particular shuffling of the deck," "once more the lineup cards were exchanged" — but never more than a line or two
 
 WHAT TO AVOID:
+- Opening with a bare statistical declaration, a decontextualized game-state summary, or a player's name without identifying context. This includes "X hit Y home runs," "X hit a ball Y feet," "X went Y-for-Z," "The game was tied at two through six innings," "The hit cleared the fence," and critically: any sentence that opens with just a name. A name alone tells the reader nothing — who is this person, what team are they on? Give them their role: "Cleveland starter Bartolo Colon," "the Padres' left fielder Greg Vaughn," etc. The opening sentence must orient the reader — give them a team, a place, a feeling, a human being doing something specific. Stats and game states belong in the body of the prose where they illuminate what happened; they are not leads. Vary the entry point for every recap: a scene, a player in a moment, the quality of the night, a narrative observation. Never open two recaps the same way.
+- Short dramatic reversal sentences: "They had not." "It was not." "He did not." "It did not last." Any three-to-five word sentence that exists solely as a theatrical pivot or dramatic beat. Angell would never write a sentence like that — he would fold the reversal into the texture of a longer, more considered sentence. These clipped pivots are an AI writing tic, not literary prose.
 - Sports clichés ("gave 110%", "clutch performance", "wanted it more")
 - The word "destiny"
 - Direct player quotes (no one actually said anything — this is a simulation)
-- Any mention of regular season records, franchise history, or "Simyou Lator Engine"
+- Any mention of regular season records, franchise history beyond what's in the conceit, or "Simyou Lator Engine"
 - Being heavy-handed about the simulation concept
+- Concluding with a grand run-on sentence about timelines, exchanging lineup cards, anthems being sung, or patterns reasserting themselves. This is filler — a ham-handed attempt to tie a bow on the piece by restating the simulation conceit in flowery language. But don't overcorrect into an abrupt cutoff either — the piece still needs a proper landing. End on a concrete image or observation from the game itself: the sound of the crowd, a final pitching line, the stadium emptying. Something grounded and short, not a rhetorical flourish about repetition and fate.
+- Endings that leave the outcome emotionally ambiguous — if Cleveland wins the World Series, the reader must feel that. Don't end on quiet contemplation when the moment calls for eruption. A crowd "standing in the chill" after a championship win reads like a loss.
 - Exclamation points in the prose
 - Headlines or titles — just the body text
-- Endings that leave the outcome emotionally ambiguous — if Cleveland wins the World Series, the reader must feel that. Don't end on quiet contemplation when the moment calls for eruption. A crowd "standing in the chill" after a championship win reads like a loss.
 - Game Score (the pitching metric) — it's an internal sabermetric stat that general readers won't know how to interpret. Use IP, hits, runs, strikeouts, and walks to convey a pitcher's dominance instead.
 
 FORMAT:
@@ -322,3 +328,4 @@ After generating each recap (during the review step, before insertion):
 - Read it aloud — does it sound like Angell? Long sentences, precise imagery, no clichés?
 - Is the simulation conceit present but restrained (1-2 references max)?
 - Cross-check Pass 2 output against Pass 1 digest — are all cited facts traceable to the digest?
+- Does the recap mention the starting pitchers' performance in some way? (Their success or unraveling is central to the game's story)
