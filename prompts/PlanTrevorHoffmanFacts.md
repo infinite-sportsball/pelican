@@ -55,3 +55,5 @@ Chuck Norris-style facts for the Hell's Bells at Jacobs Field page. Based on Hof
 - Trevor Hoffman's slider doesn't slide, it shifts the earth's rotation.
 
 - Every time Trevor Hoffman blows a save in Universe 98, Cleveland wins a championship. Too bad Trevor Hoffman never blew a save.
+
+- Trevor Hoffman once entered the ninth inning with a one-run lead, and gave up a double to the first batter. The next three batters apologized to him on their way back to the dugout.
