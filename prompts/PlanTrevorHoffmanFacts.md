@@ -57,3 +57,7 @@ Chuck Norris-style facts for the Hell's Bells at Jacobs Field page. Based on Hof
 - Every time Trevor Hoffman blows a save in Universe 98, Cleveland wins a championship. Too bad Trevor Hoffman never blew a save.
 
 - Trevor Hoffman once entered the ninth inning with a one-run lead, and gave up a double to the first batter. The next three batters apologized to him on their way back to the dugout.
+
+- When Trevor Hoffman puts runners on with no outs, he isn't working himself into a jam, he's setting up a triple play — one pitch, three outs.
+
+- Trevor Hoffman has never blown a save with the bases loaded. Trevor Hoffman has only been removed from a game with the bases loaded. The blown save was attributed to his manager.
