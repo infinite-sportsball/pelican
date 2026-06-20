@@ -325,6 +325,56 @@ This step is non-negotiable. The Roger Angell voice is too difficult to nail wit
 
 ---
 
+## AI Failure Modes — Pre-Flight Checklist
+
+These are recurring errors observed across many subagent-generated Pass 2 narratives. Check each one before accepting any recap.
+
+1. **Final-out / catcher confusion.** When the final out is a strikeout, the ball is in the **catcher's** mitt, NOT the pitcher's glove. "The ball was still in [Pitcher]'s glove" on a strikeout ending is an automatic error.
+
+2. **Fielder-team errors.** Subagents repeatedly assign outs to fielders on the wrong team. Cross-check: who plays that position for the FIELDING team in THIS game? Wally Joyner is a Padre — never put a Cleveland out in his glove. Greg Vaughn is the Padres LF; balls to right are caught by Gwynn (RF). Etc.
+
+3. **OOTP hit-location geometry.** Numeric prefixes follow the standard: **7 = left, 8 = center, 9 = right.** "9LD" = right field deep, NOT left-center. "7D" = left field deep. Never trust the subagent's directional prose on home runs and doubles — verify against the prefix in the PBP/digest.
+
+4. **Pitch-type fabrication.** The PBP gives count and result, not pitch type. "Slider," "fastball," "changeup," "sinker" — if it isn't in the digest, don't assert it. Use "pitch" instead.
+
+5. **Score / inning-state errors.** Subagents miscount innings ago ("four innings earlier" when it was two), misreport runners on base ("bases loaded" when only second and third were occupied), and invert who scored on a play. Cross-check line-score totals against the digest's KEY MOMENTS.
+
+6. **RBI-accounting overcount.** Subagents sometimes claim a play scored more runs than actually crossed (e.g., "three runs scored, and a fourth on the throw home" when the actual total was three).
+
+7. **Final-out geometry.** A "6-4 fielder's choice" means the shortstop fed the second baseman; the runner from first is forced at 2B; the BATTER reaches first safely. The batter is NOT "thrown out at second." A "4-3" grounder ends at first base — the throw arrives at first, not at second base.
+
+8. **Position-of-fielder fabrication.** Don't name fielders the PBP doesn't name. "Through the second baseman's glove" is fine if the code is 4D; "off the third baseman's bag" requires evidence.
+
+9. **Banned phrasings creeping back in.**
+   - "Destined to" / "destiny" — banned.
+   - Clipped dramatic-reversal sentences ("It did not last." "They had not." "He did not.") — banned; AI tics, not literary prose.
+   - "Less a baseball game than a [X]" / "like two men passing [Y] back and forth" — recurring AI tropes; vary the analogy.
+   - "Coming apart at the seams" — banned.
+   - "Halfway out the door" used to mean "leaving the dugout" — players don't leave through doors when they go onto the field.
+   - "Waved over a pitch" — not a phrase. Use "swung through," "waved at," "took a cut at."
+
+10. **Body-language inversion.** WINNERS sprint, mob, pile on. LOSERS sit still, jam hands in pockets, stare. A celebrating Padres outfielder does NOT "jog in with a small private smile." A losing Cleveland reliever does NOT charge the mound. The Player of the Game on the winning side does NOT "allow himself" anything — he is past control.
+
+11. **Crowd composition errors.** Game 7 attendance is not 45,225 Clevelanders. There is a sizable Padres contingent and traveling media. Use "the Cleveland faithful," "forty-five thousand," "the home crowd" — not "45,225 Clevelanders" as if every seat held a hometown fan. Also: when San Diego wins, the home crowd starts streaming for the exits — they do not sit and watch the visitors celebrate.
+
+12. **Conceit overreach.** "Had stood in this same box in some other version of this same night" — too on-the-nose. The prompt allows 1–2 glancing references; subagents often hit 3–4 explicit ones. Cut all but the lightest.
+
+13. **"Bookended" closing image.** When a player figures in both the opening and closing of the game, that's a high-leverage closing image — but verify which inning they actually batted in. Don't say "nine innings earlier" if it was actually the seventh.
+
+14. **Date math against external Game 7s.** 1997 WS Game 7 was October 26, 1997. 1998 WS Game 7 (in this sim) is October 27, 1998 — that's "one year and one day." Game 7 of the '97 Series was in **Miami**, not Jacobs Field. Kevin Brown started Game 7 for the '97 Marlins but was NOT the winning pitcher of record.
+
+15. **Pitcher-decision shorthand.** "Won" / "lost" should match the official decision. Be careful with "BS+W" combos (blown save AND win) — these are real but unusual.
+
+16. **No-hitter watch.** If a starting pitcher's line shows 1 hit, locate which inning that hit came in. A late-broken no-hit bid is a meaningful narrative beat that should be acknowledged. A 1-hit complete game is a one-hitter, not just a shutout.
+
+17. **Senseless metaphors.** "Miracle of a 2-0 deficit" — a deficit isn't a miracle. "Yellow tangle of arms" — Padres wear gray and navy on the road, not yellow. "Long marble corridor with a brick wall at the end" — better as "long, empty hallway." Read every metaphor literally before accepting it.
+
+18. **Ramirez & defensive plays.** Manny was famously known for his bat, not his glove. A small Ramirez defensive lapse (stutter step on a throw, late jump) is in character. A boneheaded play (forgetting outs, dropping a routine fly) is overkill.
+
+19. **Walking-off-the-mound errors.** Game 7 winners do NOT walk off the field. They stay for trophy presentation, hold the ball aloft, get buried by their catcher. The "executioner walks off" image is wrong for a championship-winning pitcher; he stays on the mound while the celebration forms around him.
+
+---
+
 ## Verification Checklist
 
 After generating each recap (during the review step, before insertion):
@@ -335,3 +385,4 @@ After generating each recap (during the review step, before insertion):
 - Is the simulation conceit present but restrained (1-2 references max)?
 - Cross-check Pass 2 output against Pass 1 digest — are all cited facts traceable to the digest?
 - Does the recap mention the starting pitchers' performance in some way? (Their success or unraveling is central to the game's story)
+- Run through the AI Failure Modes Pre-Flight Checklist above.
