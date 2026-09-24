@@ -2,7 +2,7 @@
 
 ## Context
 
-Each universe under `pelican/` (e.g. `98/`, `86/`, `97/`) contains ~92 game recaps written in a Roger Angell voice. The recap for each game lives between `<!--RECAP_TEXT_START-->` and `<!--RECAP_TEXT_END-->` markers inside `<universe>/content/almanacs/<gamefolder>/box_scores/game_box_1.html`. Paragraphs inside the recap are separated by `<br/><br/>`.
+Each universe under `pelican/` (e.g. `98/`, `56/`, `97/`) contains ~92 game recaps written in a Roger Angell voice. The recap for each game lives between `<!--RECAP_TEXT_START-->` and `<!--RECAP_TEXT_END-->` markers inside `<universe>/content/almanacs/<gamefolder>/box_scores/game_box_1.html`. Paragraphs inside the recap are separated by `<br/><br/>`.
 
 Across a universe the recaps drift toward AI-slop: the same phrases, analogies, and sentence rhythms recur ("the shape of X's evening", "less a rally than a procession", "the noise of a city", etc.). The user wants a Python tool to:
 
