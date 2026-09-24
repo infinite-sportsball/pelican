@@ -461,7 +461,11 @@ These are recurring errors observed across many subagent-generated Pass 2 narrat
 
 22. **No pitch-by-pitch narration.** Never walk through an at-bat pitch by pitch ("took ball one, fouled one off, swung through the next..."). Summarize: "struck out Gedman on four pitches," "fouled off four pitches and struck out on a full count." Keep it snappy and get to the point. Pitch-level detail belongs in the digest, not the prose, except for the one pitch that decides the at-bat. The 250-400 word target can be exceeded when a game's ending genuinely earns it (e.g., g63's bases-loaded, nobody-out 9th that stranded all three), but the extra length goes to the story, never to pitch sequences.
 
-23. **Bull scoreboard etiquette.** The bull fires when an ASTRO hits a home run. When a Red Sox player homers - Buckner off Ryan, Boggs off Ryan, whoever - the scoreboard does not react. Just the line score updates. This silence is a specific narrative beat and worth using once or twice across the corpus.
+23. **Recycled closing images.** "First man out of the dugout to meet X" (and close variants: "met him halfway," "first to the top step") showed up in too many recaps; do not use it. Vary the closing snapshot. Also avoid pronoun-subject openings like "It won because..." that refer back to the team awkwardly; name the actor.
+
+24. **Loop metaphors that are too on the nose.** "As if somebody had rewound the tape," "same week," or any calendar framing across timelines. Each game is the same Sunday; there is no calendar between them. Counting in nights is fine ("in eighty-six nights of this," "four nights ago"); calendar units (week, days, months) are not.
+
+25. **Bull scoreboard etiquette.** The bull fires when an ASTRO hits a home run. When a Red Sox player homers - Buckner off Ryan, Boggs off Ryan, whoever - the scoreboard does not react. Just the line score updates. This silence is a specific narrative beat and worth using once or twice across the corpus.
 
 ---
 
