@@ -459,7 +459,9 @@ These are recurring errors observed across many subagent-generated Pass 2 narrat
 
 21. **Rainbow guts specifically.** The 1986 Astros uniform is not a subtle thing. Do not describe it as "orange and yellow" - it is a full horizontal gradient: navy at the shoulders, then orange, then red, then orange, then yellow across the belly. It looks like a Texas sunset drawn by a child. Nolan Ryan wears it while pitching. Glenn Davis wears it while hitting his thirteenth home run off Roger Clemens. This detail can and should appear in recaps when useful. It is inherently funny; do not oversell it.
 
-22. **Bull scoreboard etiquette.** The bull fires when an ASTRO hits a home run. When a Red Sox player homers - Buckner off Ryan, Boggs off Ryan, whoever - the scoreboard does not react. Just the line score updates. This silence is a specific narrative beat and worth using once or twice across the corpus.
+22. **No pitch-by-pitch narration.** Never walk through an at-bat pitch by pitch ("took ball one, fouled one off, swung through the next..."). Summarize: "struck out Gedman on four pitches," "fouled off four pitches and struck out on a full count." Keep it snappy and get to the point. Pitch-level detail belongs in the digest, not the prose, except for the one pitch that decides the at-bat. The 250-400 word target can be exceeded when a game's ending genuinely earns it (e.g., g63's bases-loaded, nobody-out 9th that stranded all three), but the extra length goes to the story, never to pitch sequences.
+
+23. **Bull scoreboard etiquette.** The bull fires when an ASTRO hits a home run. When a Red Sox player homers - Buckner off Ryan, Boggs off Ryan, whoever - the scoreboard does not react. Just the line score updates. This silence is a specific narrative beat and worth using once or twice across the corpus.
 
 ---
 
