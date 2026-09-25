@@ -103,6 +103,7 @@ BANNED_PHRASES = [
     'waved over the pitch',
     'in some other version',
     'in another version of this same',
+    'in some other telling',
     'the shape of',
     'the noise of the city',
     'the noise of a city',
@@ -114,6 +115,52 @@ BANNED_PHRASES = [
 
 # Threshold above which an n-gram is flagged HIGH-PRIORITY (fraction of recaps).
 HIGH_PRIORITY_DF_FRAC = 0.25
+
+# Similarity scoring compares phrasing, not game content. Before vectorizing,
+# baseball vocabulary is collapsed into class placeholders so that "lined a
+# single into left" and "lined a double into right" read as the same frame.
+# Order matters: longer phrases first so "double play" beats "double".
+STYLE_CLASSES = [
+    ('_out_', [
+        'grounded into a double play', 'double plays', 'double play',
+        'sacrifice fly', 'sacrifice bunt', 'sac fly', 'sac bunt',
+        "fielder's choice", 'ground out', 'grounded out', 'fly out',
+        'flied out', 'flyout', 'popped up', 'popped out', 'lined out',
+        'struck out', 'strikeouts', 'strikeout',
+    ]),
+    ('_hit_', [
+        'home runs', 'home run', 'grand slam', 'infield hit', 'base on balls',
+        'line drive', 'fly ball', 'ground ball', 'homered', 'homers', 'homer',
+        'singled', 'singles', 'single', 'doubled', 'doubles', 'double',
+        'tripled', 'triples', 'triple', 'walked', 'walks', 'walk',
+        'groundball', 'grounder', 'flyball', 'liner', 'popup', 'pop-up',
+    ]),
+    ('_dir_', [
+        'first-base line', 'third-base line', 'left-field', 'right-field',
+        'center-field', 'left-center', 'right-center', 'left field',
+        'right field', 'center field', 'left', 'right', 'center',
+    ]),
+    ('_inn_', [
+        'extra innings', 'innings', 'inning', 'frame', 'extras',
+        'first', 'second', 'third', 'fourth', 'fifth', 'sixth', 'seventh',
+        'eighth', 'ninth', 'tenth', 'eleventh', 'twelfth', 'thirteenth',
+        'fourteenth', 'fifteenth', 'top', 'bottom',
+    ]),
+]
+_NUM_WORD = (r'(?:zero|one|two|three|four|five|six|seven|eight|nine|ten|'
+             r'eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|'
+             r'eighteen|nineteen|twenty|thirty|forty|fifty|sixty|seventy|'
+             r'eighty|ninety|hundred|thousand)')
+NUM_RE = re.compile(
+    r'\b\d[\d,.\-]*\b|\b' + _NUM_WORD + r'(?:[\s-]+(?:and\s+)?' + _NUM_WORD + r')*\b',
+    re.IGNORECASE,
+)
+STYLE_CLASS_RES = [
+    (cls, re.compile(r'\b(?:' + '|'.join(re.escape(w) for w in words) + r')\b',
+                     re.IGNORECASE))
+    for cls, words in STYLE_CLASSES
+]
+PLACEHOLDERS = {'_num_', '_name_'} | {cls for cls, _ in STYLE_CLASSES}
 
 STYLE = """
 * { box-sizing: border-box; }
@@ -292,6 +339,48 @@ def score_tag(path):
     return parts[-1] if parts else ''
 
 
+PLAYER_RE = re.compile(r"\b[A-Z]\. ([A-Z][\w'-]+)")
+BALLPARK_RE = re.compile(r'Ballpark: ?(.+?) (?:Start|Weather|Attendance|Pacific)')
+
+
+def extract_box_names(path):
+    """Player last names, team words, and ballpark words from a box score,
+    read from the tables outside the recap block. Case preserved."""
+    with open(path, 'r', encoding='utf-8') as f:
+        raw = RECAP_RE.sub('', f.read())
+    soup = BeautifulSoup(raw, 'html.parser')
+    text = re.sub(r'\s+', ' ', soup.get_text(' '))
+    names = set(PLAYER_RE.findall(text))
+    teams = [c.get_text(' ', strip=True) for c in soup.select('td.dl')[:2]]
+    m = BALLPARK_RE.search(text)
+    for chunk in teams + ([m.group(1)] if m else []):
+        names.update(w for w in chunk.split() if w[:1].isupper() and not w.isdigit())
+    return names
+
+
+def harvest_first_names(recap_texts, last_names, stopwords_set):
+    """Capitalized words that sit directly before a known last name in the
+    recaps ("Joe Morgan", "Matty Alou"). The box scores only carry initials.
+    A word must show up this way at least twice, which drops one-off
+    sentence openers like "Except Concepcion singled"."""
+    pat = re.compile(r"\b([A-Z][a-z]+) (?:" + '|'.join(map(re.escape, last_names)) + r")\b")
+    counts = defaultdict(int)
+    for text in recap_texts.values():
+        for w in pat.findall(text):
+            if w.lower() not in stopwords_set:
+                counts[w] += 1
+    return {w for w, c in counts.items() if c >= 2}
+
+
+def normalize_for_style(text, name_re):
+    """Collapse names, numbers, and baseball vocabulary into placeholders."""
+    t = name_re.sub(' _name_ ', text)       # case-sensitive: Green, not green
+    t = NUM_RE.sub(' _num_ ', t)
+    for cls, pat in STYLE_CLASS_RES:
+        t = pat.sub(f' {cls} ', t)
+    return t.lower()
+
+
 # ---------------------------------------------------------------------------
 # Tokenization / n-grams
 # ---------------------------------------------------------------------------
@@ -301,17 +390,17 @@ def tokenize(text, word_tokenize):
     return [t for t in toks if re.search(r'[a-z]', t)]
 
 
-def is_junk_ngram(ng, stopwords_set):
+def is_junk_ngram(ng, stopwords_set, names):
     if all(t in stopwords_set for t in ng):
         return True
-    if any(t in NAMES_STOPLIST for t in ng):
+    if any(t in names for t in ng):
         return True
     if any(any(c.isdigit() for c in t) for t in ng):
         return True
     return False
 
 
-def build_ngram_stats(recap_tokens, n, stopwords_set, ngrams_fn):
+def build_ngram_stats(recap_tokens, n, stopwords_set, ngrams_fn, names):
     """Return dict: ngram_str -> {doc_freq, total_count, timelines: set}."""
     stats = defaultdict(lambda: {
         'doc_freq': 0, 'total_count': 0, 'timelines': set(),
@@ -319,7 +408,7 @@ def build_ngram_stats(recap_tokens, n, stopwords_set, ngrams_fn):
     for tl, toks in recap_tokens.items():
         seen = set()
         for ng in ngrams_fn(toks, n):
-            if is_junk_ngram(ng, stopwords_set):
+            if is_junk_ngram(ng, stopwords_set, names):
                 continue
             key = ' '.join(ng)
             stats[key]['total_count'] += 1
@@ -344,7 +433,7 @@ def top_ngrams(stats, k):
 # Modifier (adjective/adverb) histogram
 # ---------------------------------------------------------------------------
 
-def build_modifier_stats(recap_texts, word_tokenize, pos_tag):
+def build_modifier_stats(recap_texts, word_tokenize, pos_tag, names):
     stats = defaultdict(lambda: {'doc_freq': 0, 'total_count': 0, 'timelines': set()})
     for tl, text in recap_texts.items():
         toks = word_tokenize(text.lower())
@@ -354,7 +443,7 @@ def build_modifier_stats(recap_texts, word_tokenize, pos_tag):
         for word, tag in tagged:
             if tag not in ('JJ', 'RB'):
                 continue
-            if word in NAMES_STOPLIST or len(word) <= 2:
+            if word in names or len(word) <= 2:
                 continue
             stats[word]['total_count'] += 1
             if word not in seen:
@@ -439,10 +528,31 @@ def render_snippet(snip):
 # Similarity
 # ---------------------------------------------------------------------------
 
-def compute_similarity(recap_texts, TfidfVectorizer, cosine_similarity):
+def style_analyzer(stopwords_set):
+    """Unigrams: content words only. 2/3-grams: any frame containing at least
+    one real word, so "the kind of" and "a man who" count but "of the" and
+    "_hit_ _dir_" (pure game content) do not."""
+    def is_real(t):
+        return t not in stopwords_set and t not in PLACEHOLDERS
+
+    def analyze(doc):
+        toks = re.findall(r"[a-z_][a-z_'-]*", doc)
+        toks = [t for t in toks if len(t) > 1]
+        feats = [t for t in toks if is_real(t)]
+        for n in (2, 3):
+            for i in range(len(toks) - n + 1):
+                ng = toks[i:i + n]
+                if any(is_real(t) for t in ng):
+                    feats.append(' '.join(ng))
+        return feats
+    return analyze
+
+
+def compute_similarity(recap_texts, TfidfVectorizer, cosine_similarity,
+                       name_re, stopwords_set):
     timelines = sorted(recap_texts.keys())
-    docs = [recap_texts[t] for t in timelines]
-    vect = TfidfVectorizer(ngram_range=(1, 3), min_df=2, stop_words='english')
+    docs = [normalize_for_style(recap_texts[t], name_re) for t in timelines]
+    vect = TfidfVectorizer(analyzer=style_analyzer(stopwords_set), min_df=2)
     mat = vect.fit_transform(docs)
     sim = cosine_similarity(mat)
     # Zero out self-similarity for mean/max
@@ -670,6 +780,16 @@ def main():
 
     n_recaps = len(recap_texts)
 
+    # Names for this universe, scraped from its own box scores, plus the
+    # recap-side first names that go with them.
+    box_names = set()
+    for path in files:
+        box_names |= extract_box_names(path)
+    box_names |= harvest_first_names(recap_texts, box_names, stopwords_set)
+    name_re = re.compile(r'\b(?:' + '|'.join(
+        re.escape(n) for n in sorted(box_names, key=len, reverse=True)) + r")\b")
+    names_lower = NAMES_STOPLIST | {n.lower() for n in box_names}
+
     # Tokenize once
     recap_tokens = {tl: tokenize(text, word_tokenize)
                     for tl, text in recap_texts.items()}
@@ -682,11 +802,11 @@ def main():
     limits = {2: 60, 3: 60, 4: 50, 5: 40}
     ngram_top = {}
     for n, k in limits.items():
-        stats = build_ngram_stats(recap_tokens, n, stopwords_set, ngrams_fn)
+        stats = build_ngram_stats(recap_tokens, n, stopwords_set, ngrams_fn, names_lower)
         ngram_top[n] = top_ngrams(stats, k)
 
     # Modifier histogram
-    modifier_stats = build_modifier_stats(recap_texts, word_tokenize, pos_tag)
+    modifier_stats = build_modifier_stats(recap_texts, word_tokenize, pos_tag, names_lower)
     modifier_rows = top_ngrams(modifier_stats, 60)
 
     # Opener histogram
@@ -694,7 +814,8 @@ def main():
     opener_rows = top_ngrams(op_stats, 40)
 
     # Similarity
-    sim = compute_similarity(recap_texts, TfidfVectorizer, cosine_similarity)
+    sim = compute_similarity(recap_texts, TfidfVectorizer, cosine_similarity,
+                             name_re, stopwords_set)
 
     # Which phrases to <mark> inline in per-recap pages: any n-gram (3+) whose
     # doc_freq meets the HIGH threshold, plus any banned phrase.
