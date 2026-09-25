@@ -146,6 +146,12 @@ STYLE_CLASSES = [
         'eighth', 'ninth', 'tenth', 'eleventh', 'twelfth', 'thirteenth',
         'fourteenth', 'fifteenth', 'top', 'bottom',
     ]),
+    # Generic game nouns/verbs every recap uses. Listed last so "home run"
+    # and "base on balls" are already consumed by _hit_.
+    ('_play_', [
+        'pitches', 'pitch', 'runs', 'run', 'scored', 'scores', 'score',
+        'bases', 'base', 'plate', 'ball', 'feet', 'lead', 'home', 'hits', 'hit',
+    ]),
 ]
 _NUM_WORD = (r'(?:zero|one|two|three|four|five|six|seven|eight|nine|ten|'
              r'eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|'
@@ -341,6 +347,7 @@ def score_tag(path):
 
 PLAYER_RE = re.compile(r"\b[A-Z]\. ([A-Z][\w'-]+)")
 BALLPARK_RE = re.compile(r'Ballpark: ?(.+?) (?:Start|Weather|Attendance|Pacific)')
+ROMAN_RE = re.compile(r'[IVXLC]+')
 
 
 def extract_box_names(path):
@@ -355,7 +362,9 @@ def extract_box_names(path):
     m = BALLPARK_RE.search(text)
     for chunk in teams + ([m.group(1)] if m else []):
         names.update(w for w in chunk.split() if w[:1].isupper() and not w.isdigit())
-    return names
+    # Drop one-letter words and Roman numerals ("Yankee Stadium I"), which
+    # would otherwise swallow the pronoun "I" and the like.
+    return {n for n in names if len(n) > 1 and not ROMAN_RE.fullmatch(n)}
 
 
 def harvest_first_names(recap_texts, last_names, stopwords_set):
