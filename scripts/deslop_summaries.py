@@ -146,6 +146,12 @@ STYLE_CLASSES = [
         'eighth', 'ninth', 'tenth', 'eleventh', 'twelfth', 'thirteenth',
         'fourteenth', 'fifteenth', 'top', 'bottom',
     ]),
+    # Generic game nouns/verbs every recap uses. Listed last so "home run"
+    # and "base on balls" are already consumed by _hit_.
+    ('_play_', [
+        'pitches', 'pitch', 'runs', 'run', 'scored', 'scores', 'score',
+        'bases', 'base', 'plate', 'ball', 'feet', 'lead', 'home', 'hits', 'hit',
+    ]),
 ]
 _NUM_WORD = (r'(?:zero|one|two|three|four|five|six|seven|eight|nine|ten|'
              r'eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|'
